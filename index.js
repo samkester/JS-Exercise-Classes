@@ -172,6 +172,18 @@ class Student extends Lambdasian{
     this.className = args.className;
     this.favSubjects = args.favSubjects;
   }
+  listSubjects(){
+    return this.favSubjects.reduce((result, item, index) => {
+      if(index = 0) { result += ", "; } // add ", " spacer between items in the list
+      return result += item;                   // add item
+    }, "Favorite subjects "); // initial value of `reduce` holds the beginning of the string
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun a sprint challenge on ${subject}`;
+  }
 }
 
 /*
