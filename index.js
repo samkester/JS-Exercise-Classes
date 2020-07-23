@@ -148,6 +148,11 @@ class Instructor extends Lambdasian{
   grade(student, subject){
     return `${student.name} received a perfect score on ${subject}.`;
   }
+  gradeSpitefully(student){
+    let gradeGiven = Math.floor(Math.random() * 21) - 10; // random integer from -10 to 10 inclusive
+    student.grade += gradeGiven;
+    return `${student.name} earned ${gradeGiven} points on an assignment.`;
+  }
 }
 
 /*
@@ -171,6 +176,7 @@ class Student extends Lambdasian{
     this.previousBackground = args.previousBackground;
     this.className = args.className;
     this.favSubjects = args.favSubjects;
+    this.grade = Math.floor(Math.random() * 100) + 1; // I'll be nice and not START anyone with a 0
   }
   listSubjects(){
     return this.favSubjects.reduce((result, item, index) => {
@@ -183,6 +189,10 @@ class Student extends Lambdasian{
   }
   sprintChallenge(subject){
     return `${this.name} has begun a sprint challenge on ${subject}`;
+  }
+  tryGraduate(){
+    return (this.grade >= 70) ? `${this.name} has graduated! Time for a party.` : `${this.name} will have to keep trying.`;
+    // ternary conditionals, for when you want to really confuse everyone.
   }
 }
 
