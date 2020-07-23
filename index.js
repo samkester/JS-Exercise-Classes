@@ -146,7 +146,7 @@ class Instructor extends Lambdasian{
     return `Today, we are learning about ${subject}.`;
   }
   grade(student, subject){
-    return `${student} received a perfect score on ${subject}.`;
+    return `${student.name} received a perfect score on ${subject}.`;
   }
 }
 
@@ -175,7 +175,7 @@ class Student extends Lambdasian{
   listSubjects(){
     return this.favSubjects.reduce((result, item, index) => {
       if(index = 0) { result += ", "; } // add ", " spacer between items in the list
-      return result += item;                   // add item
+      return result += item;            // add item
     }, "Favorite subjects "); // initial value of `reduce` holds the beginning of the string
   }
   PRAssignment(subject){
@@ -199,8 +199,18 @@ class Student extends Lambdasian{
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor{
+  constructor(args){
+    super(args); // The Adventures of Superargs was a poorly-recieved addition to the Superman franchise
+    this.gradClassName = args.gradClassName; //on the other hand, it was better than _Superman IV_
+    this.favInstructor = args.favInstructor;
+  }
+  standUp(channel){
+    return `${this.name} announces to ${channel}: "@channel standy times!".`;
+  }
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}.`;
+  }
 }
 
 /*
