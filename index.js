@@ -142,6 +142,12 @@ class Instructor extends Lambdasian{
     this.favLanguage = args.favLanguage;
     this.catchPhrase = args.catchPhrase; // one day I yearn to have a tryPhrase and maybe a finallyPhrase
   }
+  demo(subject){
+    return `Today, we are learning about ${subject}.`;
+  }
+  grade(student, subject){
+    return `${student} received a perfect score on ${subject}.`;
+  }
 }
 
 /*
